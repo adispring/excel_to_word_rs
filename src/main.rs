@@ -1,7 +1,6 @@
 use calamine::{open_workbook, Reader, Xlsx};
 use docx_rs::*;
 use std::fs::File;
-use std::io::Write;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Read the Excel file
@@ -32,19 +31,19 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         if !level1.is_empty() {
             doc = doc.add_paragraph(
-                Paragraph::new().add_run(Run::new().add_text(level1).bold().size(48)),
+                Paragraph::new().add_run(Run::new().add_text(level1).bold().size(48).heading1()),
             );
         }
 
         if !level2.is_empty() {
             doc = doc.add_paragraph(
-                Paragraph::new().add_run(Run::new().add_text(level2).bold().size(40)),
+                Paragraph::new().add_run(Run::new().add_text(level2).bold().size(40).heading2()),
             );
         }
 
         if !level3.is_empty() {
             doc = doc.add_paragraph(
-                Paragraph::new().add_run(Run::new().add_text(level3).bold().size(36)),
+                Paragraph::new().add_run(Run::new().add_text(level3).bold().size(36).heading3()),
             );
         }
 
